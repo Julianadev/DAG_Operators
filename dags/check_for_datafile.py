@@ -3,6 +3,7 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
 from airflow.providers.http.operators.http import SimpleHttpOperator
 from airflow.sensors.filesystem import FileSensor
+import sys
 
 dag = DAG(
    dag_id = 'update_state',
@@ -20,7 +21,6 @@ part1 = BashOperator(
    dag=dag
 )
 
-import sys
 def python_version():
    return sys.version
 
